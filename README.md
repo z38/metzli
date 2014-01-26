@@ -62,4 +62,4 @@ let me know, and/or **open a new issue report** so that I or others may take car
 
 ## Credits
 
-**Metzli** is heavily based on [ZXing](http://code.google.com/p/zxing/) and is basically a port of its Aztec encoding part.
+**Metzli** is heavily based on [ZXing](https://github.com/zxing/zxing) and is basically a port of its Aztec encoding part.
