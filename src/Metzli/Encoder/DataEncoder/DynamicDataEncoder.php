@@ -36,7 +36,6 @@ class DynamicDataEncoder implements DataEncoderInterface
         $text = str_split($data);
         $states = array(State::createInitialState());
         for ($index = 0; $index < count($text); $index++) {
-            $pairCode;
             $nextChar = (($index + 1 < count($text)) ? $text[$index + 1] : '');
             switch ($text[$index]) {
                 case '\r':
