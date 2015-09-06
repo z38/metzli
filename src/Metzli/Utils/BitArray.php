@@ -100,7 +100,7 @@ class BitArray
     {
         $bytes = str_split(implode($this->data), 8);
 
-        return sprintf("%s [ %s ]", __CLASS__, implode(' ', $bytes));
+        return sprintf('%s [ %s ]', __CLASS__, implode(' ', $bytes));
     }
 
     private function checkIndex($index)

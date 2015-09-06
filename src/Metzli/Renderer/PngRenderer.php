@@ -44,7 +44,7 @@ class PngRenderer implements RendererInterface
         }
         list($r, $g, $b) = $color;
 
-        return imagecolorallocate($im, $r, $g ,$b);
+        return imagecolorallocate($im, $r, $g, $b);
     }
 
     public function render(AztecCode $code)

@@ -25,19 +25,19 @@ class DynamicDataEncoderTest extends TestCase
 {
     public function testEncode()
     {
-        $this->encodeTest("A. b.", "...X. ..... ...XX XXX.. ...XX XXXX. XX.X");
-        $this->encodeTest("Lorem ipsum.", ".XX.X XXX.. X.... X..XX ..XX. .XXX. ....X .X.X. X...X X.X.. X.XX. .XXX. XXXX. XX.X");
-        $this->encodeTest("Lo. Test 123.", ".XX.X XXX.. X.... ..... ...XX XXX.. X.X.X ..XX. X.X.. X.X.X  XXXX. ...X ..XX .X.. .X.X XX.X");
-        $this->encodeTest("Lo...x", ".XX.X XXX.. X.... XXXX. XX.X XX.X XX.X XXX. XXX.. XX..X");
-        $this->encodeTest(". x://abc/.", "..... ...XX XXX.. XX..X ..... X.X.X ..... X.X.. ..... X.X.. ...X. ...XX ..X.. ..... X.X.. XXXX. XX.X");
-        $this->encodeTest("ABCdEFG", "...X. ...XX ..X.. XXXXX ....X .XX..X.. ..XX. ..XXX .X...");
-        $this->encodeTest("N\0N", ".XXXX XXXXX ....X ........ .XXXX");
-        $this->encodeTest("N\0n", ".XXXX XXXXX ...X. ........ .XX.XXX.");
-        $this->encodeTest("N\0\xc2\x80 A", ".XXXX XXXXX ...X. ........ X....... ....X ...X.");
-        $this->encodeTest("\0a\xc3\xbf\xc2\x80 A", "XXXXX ..X.. ........ .XX....X XXXXXXXX X....... ....X ...X.");
-        $this->encodeTest("1234\0", "XXXX. ..XX .X.. .X.X .XX. XXX. XXXXX ....X ........");
+        $this->encodeTest('A. b.', '...X. ..... ...XX XXX.. ...XX XXXX. XX.X');
+        $this->encodeTest('Lorem ipsum.', '.XX.X XXX.. X.... X..XX ..XX. .XXX. ....X .X.X. X...X X.X.. X.XX. .XXX. XXXX. XX.X');
+        $this->encodeTest('Lo. Test 123.', '.XX.X XXX.. X.... ..... ...XX XXX.. X.X.X ..XX. X.X.. X.X.X  XXXX. ...X ..XX .X.. .X.X XX.X');
+        $this->encodeTest('Lo...x', '.XX.X XXX.. X.... XXXX. XX.X XX.X XX.X XXX. XXX.. XX..X');
+        $this->encodeTest('. x://abc/.', '..... ...XX XXX.. XX..X ..... X.X.X ..... X.X.. ..... X.X.. ...X. ...XX ..X.. ..... X.X.. XXXX. XX.X');
+        $this->encodeTest('ABCdEFG', '...X. ...XX ..X.. XXXXX ....X .XX..X.. ..XX. ..XXX .X...');
+        $this->encodeTest("N\0N", '.XXXX XXXXX ....X ........ .XXXX');
+        $this->encodeTest("N\0n", '.XXXX XXXXX ...X. ........ .XX.XXX.');
+        $this->encodeTest("N\0\xc2\x80 A", '.XXXX XXXXX ...X. ........ X....... ....X ...X.');
+        $this->encodeTest("\0a\xc3\xbf\xc2\x80 A", 'XXXXX ..X.. ........ .XX....X XXXXXXXX X....... ....X ...X.');
+        $this->encodeTest("1234\0", 'XXXX. ..XX .X.. .X.X .XX. XXX. XXXXX ....X ........');
 
-        $this->encodeBitCountTest("09  UAG    ^160MEUCIQC0sYS/HpKxnBELR1uB85R20OoqqwFGa0q2uEiYgh6utAIgLl1aBVM4EOTQtMQQYH9M2Z3Dp4qnA/fwWuQ+M8L3V8U=", 823);
+        $this->encodeBitCountTest('09  UAG    ^160MEUCIQC0sYS/HpKxnBELR1uB85R20OoqqwFGa0q2uEiYgh6utAIgLl1aBVM4EOTQtMQQYH9M2Z3Dp4qnA/fwWuQ+M8L3V8U=', 823);
 
         $testString = '';
         for ($i = 0; $i <= 3000; $i++) {

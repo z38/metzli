@@ -41,6 +41,6 @@ class SimpleToken extends Token
 
     public function __toString()
     {
-        return sprintf("%s [ %0".$this->bitCount."b ]", __CLASS__, $this->value);
+        return sprintf('%s [ %0'.$this->bitCount.'b ]', __CLASS__, $this->value);
     }
 }

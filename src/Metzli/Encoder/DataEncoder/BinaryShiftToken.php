@@ -53,6 +53,6 @@ class BinaryShiftToken extends Token
 
     public function __toString()
     {
-        return sprintf("%s { start: %d, byteCount: %d, end: %d }", __CLASS__, $this->shiftStart, $this->shiftByteCount, ($this->shiftStart + $this->shiftByteCount - 1));
+        return sprintf('%s { start: %d, byteCount: %d, end: %d }', __CLASS__, $this->shiftStart, $this->shiftByteCount, ($this->shiftStart + $this->shiftByteCount - 1));
     }
 }

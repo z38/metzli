@@ -92,7 +92,7 @@ class BitMatrix
             }
             $result .= "\n";
         }
-        $result .= "]";
+        $result .= ']';
 
         return $result;
     }

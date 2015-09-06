@@ -25,10 +25,10 @@ class EncoderTest extends TestCase
 {
     public function testGenerateModeMessage()
     {
-        $this->modeMessageTest(true, 2, 29, ".X .XXX.. ...X XX.. ..X .XX. .XX.X");
-        $this->modeMessageTest(true, 4, 64, "XX XXXXXX .X.. ...X ..XX .X.. XX..");
-        $this->modeMessageTest(false, 21, 660,  "X.X.. .X.X..X..XX .XXX ..X.. .XXX. .X... ..XXX");
-        $this->modeMessageTest(false, 32, 4096, "XXXXX XXXXXXXXXXX X.X. ..... XXX.X ..X.. X.XXX");
+        $this->modeMessageTest(true, 2, 29, '.X .XXX.. ...X XX.. ..X .XX. .XX.X');
+        $this->modeMessageTest(true, 4, 64, 'XX XXXXXX .X.. ...X ..XX .X.. XX..');
+        $this->modeMessageTest(false, 21, 660,  'X.X.. .X.X..X..XX .XXX ..X.. .XXX. .X... ..XXX');
+        $this->modeMessageTest(false, 32, 4096, 'XXXXX XXXXXXXXXXX X.X. ..... XXX.X ..X.. X.XXX');
     }
 
     private function modeMessageTest($compact, $layers, $words, $expected)
@@ -39,13 +39,13 @@ class EncoderTest extends TestCase
 
     public function testStuffBits()
     {
-        $this->stuffBitsTest(5, ".X.X. X.X.X .X.X.", ".X.X. X.X.X .X.X.");
-        $this->stuffBitsTest(5, ".X.X. ..... .X.X", ".X.X. ....X ..X.X");
-        $this->stuffBitsTest(3, "XX. ... ... ..X XXX .X. ..", "XX. ..X ..X ..X ..X .XX XX. .X. ..X");
-        $this->stuffBitsTest(6, ".X.X.. ...... ..X.XX", ".X.X.. .....X. ..X.XX XXXX.");
-        $this->stuffBitsTest(6, ".X.X.. ...... ...... ..X.X.", ".X.X.. .....X .....X ....X. X.XXXX");
-        $this->stuffBitsTest(6, ".X.X.. XXXXXX ...... ..X.XX", ".X.X.. XXXXX. X..... ...X.X XXXXX.");
-        $this->stuffBitsTest(6, "...... ..XXXX X..XX. .X.... .X.X.X .....X .X.... ...X.X .....X ....XX ..X... ....X. X..XXX X.XX.X", ".....X ...XXX XX..XX ..X... ..X.X. X..... X.X... ....X. X..... X....X X..X.. .....X X.X..X XXX.XX .XXXXX");
+        $this->stuffBitsTest(5, '.X.X. X.X.X .X.X.', '.X.X. X.X.X .X.X.');
+        $this->stuffBitsTest(5, '.X.X. ..... .X.X', '.X.X. ....X ..X.X');
+        $this->stuffBitsTest(3, 'XX. ... ... ..X XXX .X. ..', 'XX. ..X ..X ..X ..X .XX XX. .X. ..X');
+        $this->stuffBitsTest(6, '.X.X.. ...... ..X.XX', '.X.X.. .....X. ..X.XX XXXX.');
+        $this->stuffBitsTest(6, '.X.X.. ...... ...... ..X.X.', '.X.X.. .....X .....X ....X. X.XXXX');
+        $this->stuffBitsTest(6, '.X.X.. XXXXXX ...... ..X.XX', '.X.X.. XXXXX. X..... ...X.X XXXXX.');
+        $this->stuffBitsTest(6, '...... ..XXXX X..XX. .X.... .X.X.X .....X .X.... ...X.X .....X ....XX ..X... ....X. X..XXX X.XX.X', '.....X ...XXX XX..XX ..X... ..X.X. X..... X.X... ....X. X..... X....X X..X.. .....X X.X..X XXX.XX .XXXXX');
     }
 
     private function stuffBitsTest($wordSize, $bits, $expected)

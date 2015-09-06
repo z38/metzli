@@ -91,7 +91,7 @@ class GenericGFPoly
             $sumDiff[$i] = GenericGF::addOrSubtract($smallerCoefficients[$i - $lengthDiff], $largerCoefficients[$i]);
         }
 
-        return new GenericGFPoly($this->field, $sumDiff);
+        return new self($this->field, $sumDiff);
     }
 
     public function multiply(GenericGFPoly $other)
@@ -116,7 +116,7 @@ class GenericGFPoly
             }
         }
 
-        return new GenericGFPoly($this->field, $product);
+        return new self($this->field, $product);
     }
 
     public function multiplyByMonomial($degree, $coefficient)
@@ -133,7 +133,7 @@ class GenericGFPoly
             $product[$i] = $this->field->multiply($this->coefficients[$i], $coefficient);
         }
 
-        return new GenericGFPoly($this->field, $product);
+        return new self($this->field, $product);
     }
 
     public function divide(GenericGFPoly $other)
@@ -161,5 +161,4 @@ class GenericGFPoly
 
         return new DivisionResult($quotient, $remainder);
     }
-
 }

@@ -20,8 +20,8 @@ namespace Metzli\Encoder;
 
 use Metzli\Encoder\DataEncoder\DataEncoderInterface;
 use Metzli\Encoder\DataEncoder\DynamicDataEncoder;
-use Metzli\Encoder\ReedSolomon\ReedSolomonEncoder;
 use Metzli\Encoder\ReedSolomon\GenericGF;
+use Metzli\Encoder\ReedSolomon\ReedSolomonEncoder;
 use Metzli\Utils\BitArray;
 use Metzli\Utils\BitMatrix;
 
@@ -34,7 +34,7 @@ class Encoder
     private static $wordSize = array(
          4,  6,  6,  8,  8,  8,  8,  8,  8, 10, 10,
         10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
-        10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12
+        10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12,
     );
 
     private function __construct()

@@ -18,8 +18,8 @@
 
 namespace Metzli\Tests\Utils;
 
-use Metzli\Utils\BitMatrix;
 use Metzli\Tests\TestCase;
+use Metzli\Utils\BitMatrix;
 
 class BitMatrixTest extends TestCase
 {

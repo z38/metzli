@@ -171,35 +171,35 @@ class DynamicDataEncoder implements DataEncoderInterface
             self::$latchTable = array(
                 array(
                     0,
-                    (5 << 16) + 28,              // UPPER -> LOWER
-                    (5 << 16) + 30,              // UPPER -> DIGIT
-                    (5 << 16) + 29,              // UPPER -> MIXED
-                    (10 << 16) + (29 << 5) + 30  // UPPER -> MIXED -> PUNCT
+                    (5 << 16) + 28,                           // UPPER -> LOWER
+                    (5 << 16) + 30,                           // UPPER -> DIGIT
+                    (5 << 16) + 29,                           // UPPER -> MIXED
+                    (10 << 16) + (29 << 5) + 30,              // UPPER -> MIXED -> PUNCT
                 ), array(
-                    (9 << 16) + (30 << 4) + 14,  // LOWER -> DIGIT -> UPPER
+                    (9 << 16) + (30 << 4) + 14,               // LOWER -> DIGIT -> UPPER
                     0,
-                    (5 << 16) + 30,              // LOWER -> DIGIT
-                    (5 << 16) + 29,              // LOWER -> MIXED
-                    (10 << 16) + (29 << 5) + 30  // LOWER -> MIXED -> PUNCT
+                    (5 << 16) + 30,                           // LOWER -> DIGIT
+                    (5 << 16) + 29,                           // LOWER -> MIXED
+                    (10 << 16) + (29 << 5) + 30,              // LOWER -> MIXED -> PUNCT
                 ), array(
-                    (4 << 16) + 14,              // DIGIT -> UPPER
-                    (9 << 16) + (14 << 5) + 28,  // DIGIT -> UPPER -> LOWER
+                    (4 << 16) + 14,                           // DIGIT -> UPPER
+                    (9 << 16) + (14 << 5) + 28,               // DIGIT -> UPPER -> LOWER
                     0,
-                    (9 << 16) + (14 << 5) + 29,  // DIGIT -> UPPER -> MIXED
-                    (14 << 16) + (14 << 10) + (29 << 5) + 30 // DIGIT -> UPPER -> MIXED -> PUNCT
+                    (9 << 16) + (14 << 5) + 29,               // DIGIT -> UPPER -> MIXED
+                    (14 << 16) + (14 << 10) + (29 << 5) + 30, // DIGIT -> UPPER -> MIXED -> PUNCT
                 ), array(
-                    (5 << 16) + 29,              // MIXED -> UPPER
-                    (5 << 16) + 28,              // MIXED -> LOWER
-                    (10 << 16) + (29 << 5) + 30, // MIXED -> UPPER -> DIGIT
+                    (5 << 16) + 29,                           // MIXED -> UPPER
+                    (5 << 16) + 28,                           // MIXED -> LOWER
+                    (10 << 16) + (29 << 5) + 30,              // MIXED -> UPPER -> DIGIT
                     0,
-                    (5 << 16) + 30               // MIXED -> PUNCT
+                    (5 << 16) + 30,                           // MIXED -> PUNCT
                 ), array(
-                    (5 << 16) + 31,              // PUNCT -> UPPER
-                    (10 << 16) + (31 << 5) + 28, // PUNCT -> UPPER -> LOWER
-                    (10 << 16) + (31 << 5) + 30, // PUNCT -> UPPER -> DIGIT
-                    (10 << 16) + (31 << 5) + 29, // PUNCT -> UPPER -> MIXED
-                    0
-                )
+                    (5 << 16) + 31,                           // PUNCT -> UPPER
+                    (10 << 16) + (31 << 5) + 28,              // PUNCT -> UPPER -> LOWER
+                    (10 << 16) + (31 << 5) + 30,              // PUNCT -> UPPER -> DIGIT
+                    (10 << 16) + (31 << 5) + 29,              // PUNCT -> UPPER -> MIXED
+                    0,
+                ),
             );
         }
 
@@ -254,7 +254,7 @@ class DynamicDataEncoder implements DataEncoderInterface
             $mixedTable = array(
                 '\0', ' ', '\1', '\2', '\3', '\4', '\5', '\6', '\7', '\b', '\t', '\n',
                 '\13', '\f', '\r', '\33', '\34', '\35', '\36', '\37', '@', '\\', '^',
-                '_', '`', '|', '~', '\177'
+                '_', '`', '|', '~', '\177',
             );
             for ($i = 0; $i < count($mixedTable); $i++) {
                 self::$charMap[self::MODE_MIXED][ord($mixedTable[$i])] = $i;
@@ -263,7 +263,7 @@ class DynamicDataEncoder implements DataEncoderInterface
             $punctTable = array(
                 '\0', '\r', '\0', '\0', '\0', '\0', '!', '\'', '#', '$', '%', '&', '\'',
                 '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?',
-                '[', ']', '{', '}'
+                '[', ']', '{', '}',
             );
             for ($i = 0; $i < count($punctTable); $i++) {
                 if (ord($punctTable[$i]) > 0) {

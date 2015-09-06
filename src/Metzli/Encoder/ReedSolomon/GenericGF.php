@@ -72,7 +72,7 @@ class GenericGF
                 $x &= ($this->size - 1);
             }
         }
-        for ($i=0; $i < $this->size; $i++) {
+        for ($i = 0; $i < $this->size; $i++) {
             $this->logTable[$this->expTable[$i]] = $i;
         }
     }
@@ -147,5 +147,4 @@ class GenericGF
 
         return $a ^ $b;
     }
-
 }

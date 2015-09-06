@@ -18,8 +18,8 @@
 
 namespace Metzli\Tests\Utils;
 
-use Metzli\Utils\BitArray;
 use Metzli\Tests\TestCase;
+use Metzli\Utils\BitArray;
 
 class BitArrayTest extends TestCase
 {

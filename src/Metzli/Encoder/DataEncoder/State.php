@@ -57,7 +57,7 @@ class State
 
     public static function createInitialState()
     {
-        return new State(Token::createEmpty(), DynamicDataEncoder::MODE_UPPER, 0, 0);
+        return new self(Token::createEmpty(), DynamicDataEncoder::MODE_UPPER, 0, 0);
     }
 
     public function latchAndAppend($mode, $value)
@@ -72,7 +72,7 @@ class State
         $latchModeBitCount = ($mode == DynamicDataEncoder::MODE_DIGIT ? 4 : 5);
         $token = $token->add($value, $latchModeBitCount);
 
-        return new State($token, $mode, 0, $bitCount + $latchModeBitCount);
+        return new self($token, $mode, 0, $bitCount + $latchModeBitCount);
     }
 
     public function shiftAndAppend($mode, $value)
@@ -82,7 +82,7 @@ class State
         $token = $token->add(DynamicDataEncoder::getShift($this->mode, $mode), $thisModeBitCount);
         $token = $token->add($value, 5);
 
-        return new State($token, $this->mode, 0, $this->bitCount + $thisModeBitCount + 5);
+        return new self($token, $this->mode, 0, $this->bitCount + $thisModeBitCount + 5);
     }
 
     public function addBinaryShiftChar($index)
@@ -104,7 +104,7 @@ class State
         } else {
             $deltaBitCount = 8;
         }
-        $result = new State($token, $mode, $this->shiftByteCount + 1, $bitCount + $deltaBitCount);
+        $result = new self($token, $mode, $this->shiftByteCount + 1, $bitCount + $deltaBitCount);
         if ($result->getBinaryShiftByteCount() == (2047 + 31)) {
             $result = $result->endBinaryShift($index + 1);
         }
@@ -120,7 +120,7 @@ class State
         $token = $this->token;
         $token = $token->addBinaryShift($index - $this->shiftByteCount, $this->shiftByteCount);
 
-        return new State($token, $this->mode, 0, $this->bitCount);
+        return new self($token, $this->mode, 0, $this->bitCount);
     }
 
     public function isBetterThanOrEqualTo(State $other)
@@ -159,6 +159,6 @@ class State
             $token = $token->getPrevious();
         }
 
-        return sprintf("%s { mode = %s, bits = %d, shiftBytes = %d, tokens = [ %s ] }", __CLASS__, DynamicDataEncoder::getModeName($this->mode), $this->bitCount, $this->shiftByteCount, implode(', ', array_reverse($tokens)));
+        return sprintf('%s { mode = %s, bits = %d, shiftBytes = %d, tokens = [ %s ] }', __CLASS__, DynamicDataEncoder::getModeName($this->mode), $this->bitCount, $this->shiftByteCount, implode(', ', array_reverse($tokens)));
     }
 }
