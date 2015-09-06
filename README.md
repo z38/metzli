@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/z38/metzli.png?branch=master)](https://travis-ci.org/z38/metzli)
 
-**Metzli** is an PHP library to generate Aztec 2D barcodes.
+**Metzli** is a PHP library to generate Aztec 2D barcodes.
 
 ![Aztec code example](http://i.imgur.com/8JcHtOl.png)
 
