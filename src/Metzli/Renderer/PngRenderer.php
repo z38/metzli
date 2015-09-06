@@ -60,7 +60,7 @@ class PngRenderer implements RendererInterface
         for ($x = 0; $x < $matrix->getWidth(); $x++) {
             for ($y = 0; $y < $matrix->getHeight(); $y++) {
                 if ($matrix->get($x, $y)) {
-                    imagefilledrectangle($im, $x * $f, $y * $f, ($x + 1) * $f, ($y + 1) * $f, $fg);
+                    imagefilledrectangle($im, $x * $f, $y * $f, (($x + 1) * $f - 1), (($y + 1) * $f - 1), $fg);
                 }
             }
         }
