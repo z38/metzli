@@ -4,6 +4,8 @@
 
 **Metzli** is an PHP library to generate Aztec 2D barcodes.
 
+![Aztec code example](http://i.imgur.com/8JcHtOl.png)
+
 ## Installing
 
 Just install [Composer](http://getcomposer.org) and run `composer require z38/metzli` in your project directory.
