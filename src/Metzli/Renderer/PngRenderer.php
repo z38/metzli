@@ -47,9 +47,9 @@ class PngRenderer implements RendererInterface
         return imagecolorallocate($im, $r, $g, $b);
     }
 
-    public function render(AztecCode $code)
+    public function render(AztecCode $code, $f = false)
     {
-        $f = $this->factor;
+        if(!$f) $f = $this->factor;
         $matrix = $code->getMatrix();
         $im = imagecreatetruecolor($matrix->getWidth() * $f, $matrix->getHeight() * $f);
         $fg = $this->allocateColor($im, $this->fgColor);
