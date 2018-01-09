@@ -53,7 +53,12 @@ class PngRenderer implements RendererInterface
         $matrix = $code->getMatrix();
         $im = imagecreatetruecolor($matrix->getWidth() * $f, $matrix->getHeight() * $f);
         $fg = $this->allocateColor($im, $this->fgColor);
-        $bg = $this->allocateColor($im, $this->bgColor);
+        if (is_array($this->bgColor)) {
+            $bg = $this->allocateColor($im, $this->bgColor);
+        } else {
+            $bg = imagecolorallocatealpha($im, 0, 0, 0, 127);
+            imagesavealpha($im, true);
+        }
 
         imagefill($im, 0, 0, $bg);
 

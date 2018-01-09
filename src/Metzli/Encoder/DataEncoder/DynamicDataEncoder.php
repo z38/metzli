@@ -153,7 +153,7 @@ class DynamicDataEncoder implements DataEncoderInterface
                 }
             }
             if ($add) {
-                $result[] = $newState;
+                $result[$i] = $newState;
             }
         }
 

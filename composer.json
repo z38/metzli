@@ -1,5 +1,5 @@
 {
-    "name": "z38/metzli",
+    "name": "jwadin/metzli",
     "type": "library",
     "license": "Apache-2.0",
     "description": "PHP library to generate Aztec barcodes",
