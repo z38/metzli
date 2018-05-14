@@ -31,7 +31,7 @@ class FpdfRenderer implements RendererInterface
 
     private $s;
 
-    public function __construct(\FPDF $fpdfLikeObject = null, $size = false, $x = false, $y = false, $fgColor = array(0, 0, 0), $bgColor = array(256, 256, 256))
+    public function __construct(\FPDF $fpdfLikeObject = null, $s = false, $x = false, $y = false, $fgColor = array(0, 0, 0), $bgColor = array(256, 256, 256))
     {
         $this->fgColor = $fgColor;
         $this->bgColor = $bgColor;
