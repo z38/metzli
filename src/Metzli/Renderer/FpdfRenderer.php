@@ -24,18 +24,18 @@ use Metzli\Encoder\AztecCode;
 class FpdfRenderer implements RendererInterface
 {
     private $pdf;
-    private $size;
     private $x;
     private $y;
+    private $size;
     private $fgColor;
     private $bgColor;
 
-    public function __construct(FPDF $pdf, $size, $x, $y, $fgColor = array(0, 0, 0), $bgColor = null)
+    public function __construct(FPDF $pdf, $x, $y, $size, $fgColor = array(0, 0, 0), $bgColor = null)
     {
         $this->pdf = $pdf;
-        $this->size = $size;
         $this->x = $x;
         $this->y = $y;
+        $this->size = $size;
         $this->fgColor = $fgColor;
         $this->bgColor = $bgColor;
     }
