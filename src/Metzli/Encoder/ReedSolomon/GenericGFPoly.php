@@ -58,7 +58,7 @@ class GenericGFPoly
 
     public function isZero()
     {
-        return ($this->coefficients[0] == 0);
+        return $this->coefficients[0] == 0;
     }
 
     public function getCoefficient($degree)

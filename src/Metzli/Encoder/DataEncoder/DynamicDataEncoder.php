@@ -102,7 +102,7 @@ class DynamicDataEncoder implements DataEncoderInterface
             }
         }
         if ($state->getBinaryShiftByteCount() > 0 || self::getCharMapping($state->getMode(), $ch) == 0) {
-            $result[] = $state->addbinaryShiftChar($index);
+            $result[] = $state->addBinaryShiftChar($index);
         }
 
         return $result;

@@ -18,52 +18,48 @@
 
 namespace Metzli\Renderer;
 
+use FPDF;
 use Metzli\Encoder\AztecCode;
 
 class FpdfRenderer implements RendererInterface
 {
-    private $fgColor;
-    private $bgColor;
     private $pdf;
-
+    private $size;
     private $x;
     private $y;
+    private $fgColor;
+    private $bgColor;
 
-    private $s;
-
-    public function __construct(\FPDF $fpdfLikeObject, $s, $x, $y, $fgColor = array(0, 0, 0), $bgColor = null)
+    public function __construct(FPDF $pdf, $size, $x, $y, $fgColor = array(0, 0, 0), $bgColor = null)
     {
-        $this->fgColor = $fgColor;
-        $this->bgColor = $bgColor;
-        $this->pdf = $fpdfLikeObject;
+        $this->pdf = $pdf;
+        $this->size = $size;
         $this->x = $x;
         $this->y = $y;
-        $this->s = $s;
+        $this->fgColor = $fgColor;
+        $this->bgColor = $bgColor;
     }
 
     public function render(AztecCode $code)
-    {        
-        $matrix = $code->getMatrix();       
+    {
+        $matrix = $code->getMatrix();
 
-        if($this->bgColor!=null){
-            // Background
-            $this->pdf->SetFillColor($this->bgColor[0],$this->bgColor[1],$this->bgColor[2]);
-            // Make background
-            $this->pdf->Rect($this->x, $this->y, $this->s, $this->s, 'F' );
+        if ($this->bgColor != null) {
+            $this->pdf->SetFillColor($this->bgColor[0], $this->bgColor[1], $this->bgColor[2]);
+            $this->pdf->Rect($this->x, $this->y, $this->size, $this->size, 'F');
         }
 
-        $cellsize_w = $this->s/$matrix->getWidth();
-        $cellsize_h = $this->s/$matrix->getHeight();
+        $cellWidth = $this->size / $matrix->getWidth();
+        $cellHeight = $this->size / $matrix->getHeight();
 
-        // Foreground
-        $this->pdf->SetFillColor($this->fgColor[0],$this->fgColor[1],$this->fgColor[2]);
+        $this->pdf->SetFillColor($this->fgColor[0], $this->fgColor[1], $this->fgColor[2]);
 
         for ($x = 0; $x < $matrix->getWidth(); $x++) {
             for ($y = 0; $y < $matrix->getHeight(); $y++) {
                 if ($matrix->get($x, $y)) {
-                    $this->pdf->Rect($this->x+$x*$cellsize_w, $this->y+$y*$cellsize_h, $cellsize_w, $cellsize_h, 'F' );
+                    $this->pdf->Rect($this->x + $x * $cellWidth, $this->y + $y * $cellHeight, $cellWidth, $cellHeight, 'F');
                 }
             }
-        }      
+        }
     }
 }

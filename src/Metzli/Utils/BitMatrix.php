@@ -80,7 +80,7 @@ class BitMatrix
             throw new\OutOfRangeException();
         }
 
-        return ($x + $y * $this->width);
+        return $x + $y * $this->width;
     }
 
     public function __toString()

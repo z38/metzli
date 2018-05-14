@@ -130,7 +130,7 @@ class State
             $mySize += 10;
         }
 
-        return ($mySize <= $other->getBitCount());
+        return $mySize <= $other->getBitCount();
     }
 
     public function toBitArray(array $text)

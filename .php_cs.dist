@@ -1,0 +1,16 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in('src')
+    ->in('tests')
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'increment_style' => ['style' => 'post'],
+        'ordered_imports' => true,
+        'yoda_style' => null,
+    ])
+    ->setFinder($finder)
+;
