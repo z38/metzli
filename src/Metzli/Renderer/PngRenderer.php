@@ -47,7 +47,7 @@ class PngRenderer implements RendererInterface
         return imagecolorallocate($im, $r, $g, $b);
     }
 
-    public function render(AztecCode $code)
+    public function render(AztecCode $code, $path, $filename)
     {
         $f = $this->factor;
         $matrix = $code->getMatrix();
@@ -65,11 +65,20 @@ class PngRenderer implements RendererInterface
             }
         }
 
-        ob_start();
-        imagepng($im);
-        $result = ob_get_clean();
-        imagedestroy($im);
+        if($filename=="" && $path=="") {
 
-        return $result;
+            ob_start();
+            imagepng($im);
+            $result = ob_get_clean();
+            imagedestroy($im);
+
+            return $result;
+
+        } else {
+
+            imagepng($im,$path.$filename);
+
+        }
+
     }
 }

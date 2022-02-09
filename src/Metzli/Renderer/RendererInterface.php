@@ -22,5 +22,5 @@ use Metzli\Encoder\AztecCode;
 
 interface RendererInterface
 {
-    public function render(AztecCode $code);
+    public function render(AztecCode $code, $path, $filename);
 }
