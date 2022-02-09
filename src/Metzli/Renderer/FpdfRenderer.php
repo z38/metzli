@@ -40,7 +40,7 @@ class FpdfRenderer implements RendererInterface
         $this->bgColor = $bgColor;
     }
 
-    public function render(AztecCode $code)
+    public function render(AztecCode $code, $path = '', $filename='')
     {
         $matrix = $code->getMatrix();
 
